@@ -1,0 +1,31 @@
+[package]
+name = "stm32f1xx-concurrency-benchmarks"
+version = "0.1.0"
+authors = ["Martin Kröning <mkroening@posteo.net>"]
+edition = "2018"
+description = "Benchmarks of concurrency approaches on the STM32F1xx family of microcontrollers."
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[dependencies]
+stm32f1xx-hal = "0.6"
+typenum = "1.12"
+
+[dev-dependencies.async-embedded]
+git = "https://github.com/rust-embedded-community/async-on-embedded"
+rev = "4caea4669dd34c4e0787dd75a90efe4677e49727"
+
+[dev-dependencies]
+cortex-m = "0.6"
+cortex-m-rt = "0.6"
+cortex-m-rtic = "0.5"
+cortex-m-semihosting = "0.3"
+futures = { version = "0.3", default-features = false }
+panic-semihosting = "0.5"
+stm32f1xx-hal = { version = "0.6", features = ["rt", "stm32f103", "medium"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+debug = true
