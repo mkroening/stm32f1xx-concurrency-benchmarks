@@ -23,15 +23,29 @@ dependencies = [
 [[package]]
 name = "async-embedded"
 version = "0.0.0-alpha.0"
-source = "git+https://github.com/rust-embedded-community/async-on-embedded?rev=4caea4669dd34c4e0787dd75a90efe4677e49727#4caea4669dd34c4e0787dd75a90efe4677e49727"
+source = "git+https://github.com/rust-embedded-community/async-on-embedded?rev=17aa0f6ef1f1e3639acbce28093c6c30aacaf2c9#17aa0f6ef1f1e3639acbce28093c6c30aacaf2c9"
 dependencies = [
  "cortex-m",
  "cortex-m-udf",
- "generic-array 0.13.2",
+ "generic-array 0.14.2",
  "heapless 0.5.3",
  "pin-utils",
  "riscv",
  "typenum",
+]
+
+[[package]]
+name = "async-stm32f1xx"
+version = "0.2.1"
+source = "git+https://git-ce.rwth-aachen.de/acs/internal/theses/bachelor/martin-kroening/async-stm32f1xx?rev=0c3037b7bd15b0f700e9ee655924b82614f6c016#0c3037b7bd15b0f700e9ee655924b82614f6c016"
+dependencies = [
+ "as-slice",
+ "cortex-m-rt",
+ "embedded-hal",
+ "futures",
+ "nb",
+ "stm32f1xx-hal",
+ "void",
 ]
 
 [[package]]
@@ -140,7 +154,7 @@ dependencies = [
 [[package]]
 name = "cortex-m-udf"
 version = "0.0.0-alpha.0"
-source = "git+https://github.com/rust-embedded-community/async-on-embedded?rev=4caea4669dd34c4e0787dd75a90efe4677e49727#4caea4669dd34c4e0787dd75a90efe4677e49727"
+source = "git+https://github.com/rust-embedded-community/async-on-embedded?rev=17aa0f6ef1f1e3639acbce28093c6c30aacaf2c9#17aa0f6ef1f1e3639acbce28093c6c30aacaf2c9"
 
 [[package]]
 name = "embedded-hal"
@@ -229,6 +243,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0ed1e761351b56f54eb9dcd0cfaca9fd0daecf93918e1cfc01c8a3d26ee7adcd"
 dependencies = [
  "typenum",
+]
+
+[[package]]
+name = "generic-array"
+version = "0.14.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ac746a5f3bbfdadd6106868134545e684693d54d9d44f6e9588a7d54af0bf980"
+dependencies = [
+ "typenum",
+ "version_check",
 ]
 
 [[package]]
@@ -411,6 +435,7 @@ name = "stm32f1xx-concurrency-benchmarks"
 version = "0.1.0"
 dependencies = [
  "async-embedded",
+ "async-stm32f1xx",
  "cortex-m",
  "cortex-m-rt",
  "cortex-m-rtic",
