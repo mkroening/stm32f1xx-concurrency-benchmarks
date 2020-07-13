@@ -1,0 +1,7 @@
+[default.probe]
+# ST-LINK/V2
+usb_vid = "0483"
+usb_pid = "3748"
+
+[default.general]
+chip = "STM32F103C8"
