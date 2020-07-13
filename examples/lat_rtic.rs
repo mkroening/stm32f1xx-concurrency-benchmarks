@@ -7,7 +7,7 @@ use rtic::app;
 use stm32f1xx_hal::{
     gpio::{
         gpioa::{PA5, PA6},
-        Edge, ExtiPin, Floating, Input, Output, PushPull, State,
+        Edge, ExtiPin, Floating, Input, Output, PushPull,
     },
     prelude::*,
 };
@@ -32,9 +32,7 @@ const APP: () = {
         trigger_pin.trigger_on_edge(&dp.EXTI, Edge::RISING_FALLING);
         trigger_pin.enable_interrupt(&dp.EXTI);
 
-        let reaction_pin = gpioa
-            .pa6
-            .into_push_pull_output_with_state(&mut gpioa.crl, State::High);
+        let reaction_pin = gpioa.pa6.into_push_pull_output(&mut gpioa.crl);
 
         init::LateResources {
             reaction_pin,

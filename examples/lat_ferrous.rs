@@ -6,7 +6,7 @@ use async_stm32f1xx::exti::AsyncPin;
 use cortex_m_rt::entry;
 use panic_halt as _; // panic handler
 use stm32f1xx_hal::{
-    gpio::{Edge, ExtiPin, State},
+    gpio::{Edge, ExtiPin},
     pac::Peripherals,
     prelude::*,
 };
@@ -24,9 +24,7 @@ fn main() -> ! {
         .as_mut()
         .trigger_on_edge(&dp.EXTI, Edge::RISING_FALLING);
 
-    let mut reaction_pin = gpioa
-        .pa6
-        .into_push_pull_output_with_state(&mut gpioa.crl, State::High);
+    let mut reaction_pin = gpioa.pa6.into_push_pull_output(&mut gpioa.crl);
 
     task::block_on(async move {
         loop {
