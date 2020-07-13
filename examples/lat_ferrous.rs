@@ -4,7 +4,7 @@
 use async_embedded::task;
 use async_stm32f1xx::exti::AsyncPin;
 use cortex_m_rt::entry;
-use panic_semihosting as _; // panic handler
+use panic_halt as _; // panic handler
 use stm32f1xx_hal::{
     gpio::{Edge, ExtiPin, State},
     pac::Peripherals,

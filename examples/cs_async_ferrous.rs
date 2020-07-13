@@ -3,7 +3,7 @@
 
 use async_embedded::task;
 use cortex_m_rt::entry;
-use panic_semihosting as _; // panic handler
+use panic_halt as _; // panic handler
 use stm32f1xx_concurrency_benchmarks::{r#yield::Yield, static_pins::StaticPA};
 use stm32f1xx_hal::{pac::Peripherals, prelude::*};
 use typenum::U5;

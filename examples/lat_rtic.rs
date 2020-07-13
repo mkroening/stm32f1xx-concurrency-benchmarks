@@ -2,7 +2,7 @@
 #![no_std]
 
 use cortex_m::asm;
-use panic_semihosting as _; // panic handler
+use panic_halt as _; // panic handler
 use rtic::app;
 use stm32f1xx_hal::{
     gpio::{

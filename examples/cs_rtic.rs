@@ -1,7 +1,7 @@
 #![no_main]
 #![no_std]
 
-use panic_semihosting as _; // panic handler
+use panic_halt as _; // panic handler
 use rtic::app;
 use stm32f1xx_concurrency_benchmarks::static_pins::{consts::U5, StaticPA};
 use stm32f1xx_hal::prelude::*;
