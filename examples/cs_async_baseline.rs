@@ -17,14 +17,6 @@ fn main() -> ! {
 
     gpioa.pa5.into_push_pull_output(&mut gpioa.crl);
 
-    let set_low = async {
-        loop {
-            StaticPA::<U5>::set_low();
-            Yield::default().await;
-        }
-    };
-    pin_mut!(set_low);
-
     let set_high = async {
         loop {
             StaticPA::<U5>::set_high();
@@ -33,10 +25,18 @@ fn main() -> ! {
     };
     pin_mut!(set_high);
 
+    let set_low = async {
+        loop {
+            StaticPA::<U5>::set_low();
+            Yield::default().await;
+        }
+    };
+    pin_mut!(set_low);
+
     let waker = task::noop_waker();
     let mut cx = Context::from_waker(&waker);
     loop {
-        let _ = set_low.as_mut().poll(&mut cx);
         let _ = set_high.as_mut().poll(&mut cx);
+        let _ = set_low.as_mut().poll(&mut cx);
     }
 }

@@ -16,7 +16,7 @@ fn main() -> ! {
     gpioa.pa5.into_push_pull_output(&mut gpioa.crl);
 
     loop {
-        StaticPA::<U5>::set_low();
         StaticPA::<U5>::set_high();
+        StaticPA::<U5>::set_low();
     }
 }

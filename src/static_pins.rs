@@ -18,10 +18,10 @@ where
     }
 
     pub fn set_high() {
-        Self::write_bits_to_register(1 << (16 + PIN::I32));
+        Self::write_bits_to_register(1 << PIN::I32)
     }
 
     pub fn set_low() {
-        Self::write_bits_to_register(1 << PIN::I32);
+        Self::write_bits_to_register(1 << (16 + PIN::I32))
     }
 }

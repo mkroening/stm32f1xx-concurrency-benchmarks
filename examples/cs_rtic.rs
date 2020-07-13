@@ -19,16 +19,16 @@ const APP: () = {
         cx.spawn.set_high().unwrap()
     }
 
-    #[task(spawn = [set_high])]
-    fn set_low(cx: set_low::Context) {
-        StaticPA::<U5>::set_low();
-        cx.spawn.set_high().unwrap()
-    }
-
     #[task(spawn = [set_low])]
     fn set_high(cx: set_high::Context) {
         StaticPA::<U5>::set_high();
         cx.spawn.set_low().unwrap()
+    }
+
+    #[task(spawn = [set_high])]
+    fn set_low(cx: set_low::Context) {
+        StaticPA::<U5>::set_low();
+        cx.spawn.set_high().unwrap()
     }
 
     extern "C" {
