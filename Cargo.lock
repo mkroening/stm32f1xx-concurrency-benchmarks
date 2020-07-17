@@ -37,7 +37,7 @@ dependencies = [
 [[package]]
 name = "async-stm32f1xx"
 version = "0.2.1"
-source = "git+https://git-ce.rwth-aachen.de/acs/internal/theses/bachelor/martin-kroening/async-stm32f1xx?rev=0c3037b7bd15b0f700e9ee655924b82614f6c016#0c3037b7bd15b0f700e9ee655924b82614f6c016"
+source = "git+https://github.com/mwkroening/async-stm32f1xx.git?rev=0c3037b7bd15b0f700e9ee655924b82614f6c016#0c3037b7bd15b0f700e9ee655924b82614f6c016"
 dependencies = [
  "as-slice",
  "cortex-m-rt",

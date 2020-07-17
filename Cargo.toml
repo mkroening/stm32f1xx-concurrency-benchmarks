@@ -17,7 +17,7 @@ git = "https://github.com/rust-embedded-community/async-on-embedded"
 rev = "17aa0f6ef1f1e3639acbce28093c6c30aacaf2c9"
 
 [dev-dependencies.async-stm32f1xx]
-git = "https://git-ce.rwth-aachen.de/acs/internal/theses/bachelor/martin-kroening/async-stm32f1xx"
+git = "https://github.com/mwkroening/async-stm32f1xx"
 rev = "0c3037b7bd15b0f700e9ee655924b82614f6c016"
 
 [dev-dependencies]
